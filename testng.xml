@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+        <listener class-name="ExtentReportManager"/>
+    </listeners>
+    <test name="ListenerTest">
+        <classes>
+            <class name="ListenerDemo.OrangeHrmListener">
+                <methods>
+                    <include name="testLogo"/>
+                    <include name="testUrl"/>
+                    <include name="testLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

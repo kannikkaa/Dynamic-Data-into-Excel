@@ -1,0 +1,47 @@
+//types of tests it covers
+UI E2E with POM + BDD, API smoke, accessibility a11y, reporting, and CI
+
+healthcare-bdd-framework/
+ ├─ src
+ │   └─ test
+ │       ├─ java
+ │       │   ├─ pages
+ │       │   │   └─ LoginPage.java
+ │       │   ├─ stepDefinitions
+ │       │   │   └─ LoginSteps.java
+ │       │   └─ runners
+ │       │       └─ TestRunner.java
+ │       └─ resources
+ │           └─ features
+ │               └─ login.feature
+ ├─ pom.xml
+ ├─ testng.xml
+ └─ README.md
+
+ //what is inside
+ Selenium + Java + TestNG + Cucumber (BDD)
+ Page Object Model for CURA Healthcare demo site
+ UI tests: login, book appointment
+ API test: FDA drug event public API (RestAssured)
+ Accessibility: axe-core scan example
+ Reports: Cucumber HTML + ExtentReports
+ CI: GitHub Actions workflow (headless Chrome) for push/PRs
+ Config: config.properties (URL, headless, waits)
+
+ //run locally
+ mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+ To see the browser: set headless=false in src/test/resources/config.properties.
+
+ //run specific test types
+ mvn clean test -Dcucumber.filter.tags="@ui"
+ mvn clean test -Dcucumber.filter.tags="@api"
+ mvn clean test -Dcucumber.filter.tags="@a11y"
+
+ //add to your github
+ Extract the ZIP.
+ git init && git add . && git commit -m "Healthcare BDD framework"
+  Create a repo on GitHub and push:
+
+git branch -M main
+ git remote add origin <your-repo-url>
+ git push -u origin main
